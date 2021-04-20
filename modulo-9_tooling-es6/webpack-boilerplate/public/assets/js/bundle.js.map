@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://webpack-boilerplate/./src/index.js"],"names":["alert"],"mappings":"AAAAA,MAAM","file":"bundle.js","sourcesContent":["alert(\"Hello Word\");"],"sourceRoot":""}
