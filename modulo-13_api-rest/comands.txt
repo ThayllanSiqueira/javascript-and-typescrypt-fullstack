@@ -1,0 +1,11 @@
+# show docker
+sudo docker ps
+
+# Parar servidor docker
+sudo docker stop bdmariadb1
+
+# Iniciar servidor docker
+sudo docker start bdmariadb1
+
+# Remover servidor
+sudo docker rm bdmariadb1
