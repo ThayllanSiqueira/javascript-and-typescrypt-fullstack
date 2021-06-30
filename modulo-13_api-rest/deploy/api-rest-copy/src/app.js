@@ -1,5 +1,7 @@
 import dotenv from 'dotenv';
 import { resolve } from 'path';
+import cors from 'cors';
+import helmet from 'helmet';
 
 dotenv.config();
 import './database';
@@ -10,6 +12,22 @@ import tokenRoutes from './routes/tokenRoutes';
 import alunoRoutes from './routes/alunoRoutes';
 import fotoRoutes from './routes/fotoRoutes';
 
+const whiteList = [
+  'http://34.95.145.99',
+  'http://localhost:3000',
+  'http://www.cleversystems.com.br',
+];
+
+const corsOptions = {
+  origin(origin, callback) {
+    if (whiteList.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
 class App {
   constructor() {
     this.app = express();
@@ -18,6 +36,8 @@ class App {
   }
 
   middlewares() {
+    this.app.use(cors(corsOptions));
+    this.app.use(helmet());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     this.app.use('/images/', express.static(resolve(__dirname, '..', 'uploads', 'images')));
