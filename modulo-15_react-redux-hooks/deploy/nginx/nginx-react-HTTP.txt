@@ -1,14 +1,14 @@
 server {
-	listen 80;
-	listen [::]:80;
-  server_name IP_DO_SERVIDOR_OU_DOMINIO;
+	listen 81;
+	listen [::]:81;
+  server_name 34.95.145.99;
 
-  root /home/luizotavio/react1/app/build/;
+  root /home/DESENVOLVIMENTO/react/app/build;
 
-  if ($host != "IP_DO_SERVIDOR_OU_DOMINIO") {
+  if ($host != "34.95.145.99") {
       return 404;
  	}
-	
+
 	# Add index.html
 	index index.html;
 
@@ -30,6 +30,6 @@ server {
 	}
 
 	access_log off;
-	#access_log  /var/log/nginx/IP_DO_SERVIDOR_OU_DOMINIO-access.log;
-	error_log   /var/log/nginx/IP_DO_SERVIDOR_OU_DOMINIO-error.log;
+	#access_log  /var/log/nginx/34.95.145.99-access.log;
+	error_log   /var/log/nginx/34.95.145.99-error.log;
 }

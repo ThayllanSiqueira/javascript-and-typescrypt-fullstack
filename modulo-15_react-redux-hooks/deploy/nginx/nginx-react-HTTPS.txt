@@ -2,7 +2,7 @@
 server {
 	listen 80;
 	listen [::]:80;
-  server_name MEUSITE.COM.BR;
+  server_name react.thayllansiqueira.com.br;
   return 301 https://$host$request_uri;
 }
 
@@ -10,16 +10,16 @@ server {
 	listen 443 ssl http2;
 	listen [::]:443 ssl http2;
 
-	server_name MEUSITE.COM.BR;
-  root /home/luizotavio/react1/app/build/;
+	server_name react.thayllansiqueira.com.br;
+  root /home/DESENVOLVIMENTO/react/app/build;
 
-  if ($host != "MEUSITE.COM.BR") {
+  if ($host != "react.thayllansiqueira.com.br") {
       return 404;
  	}
-	
-	ssl_certificate /etc/letsencrypt/live/MEUSITE.COM.BR/fullchain.pem; # managed by Certbot
-	ssl_certificate_key /etc/letsencrypt/live/MEUSITE.COM.BR/privkey.pem; # managed by Certbot
-	ssl_trusted_certificate /etc/letsencrypt/live/MEUSITE.COM.BR/chain.pem;
+
+	ssl_certificate /etc/letsencrypt/live/react.thayllansiqueira.com.br/fullchain.pem; # managed by Certbot
+	ssl_certificate_key /etc/letsencrypt/live/react.thayllansiqueira.com.br/privkey.pem; # managed by Certbot
+	ssl_trusted_certificate /etc/letsencrypt/live/react.thayllansiqueira.com.br/chain.pem;
 
 	# Improve HTTPS performance with session resumption
 	ssl_session_cache shared:SSL:10m;
@@ -66,6 +66,6 @@ server {
 	}
 
 	access_log off;
-	#access_log  /var/log/nginx/MEUSITE.COM.BR-access.log;
-	error_log   /var/log/nginx/MEUSITE.COM.BR-error.log;
+	#access_log  /var/log/nginx/react.thayllansiqueira.com.br-access.log;
+	error_log   /var/log/nginx/react.thayllansiqueira.com.br-error.log;
 }

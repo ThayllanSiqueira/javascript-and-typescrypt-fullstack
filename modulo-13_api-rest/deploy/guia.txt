@@ -96,6 +96,12 @@ pm2 start /home/seu_usuario/api/dist/server.js --name=api --node-args="--require
 pm2 ls
 
 # PARA CONFIGURAR O NGINX, USE O OUTRO ARQUIVO DESTA AULA
+
+# Crie o arquivo de configuração http ou https
+sudo nano /etc/nginx/sites-enabled/seudominio
+# Cole as configurções no arquivo (Com as suas configurações)
+
+
 # Depois
 sudo systemctl stop nginx
 
