@@ -1,3 +1,22 @@
-export default function Home() {
-  return <h1>OI</h1>;
+import { GetStaticProps } from 'next';
+import HomePage from '@/containers/HomePage';
+import { getAllPosts } from '@/data/posts/get-all-posts';
+import { PostData } from '@/domain/posts/post';
+
+export type HomeProps = {
+  posts: PostData[];
+};
+
+export default function Home({ posts }: HomeProps) {
+  return <HomePage posts={posts} />;
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await getAllPosts(
+    'sort=id:desc&pagination[page]=1&pagination[pageSize]=30',
+  );
+  return {
+    props: { posts },
+    revalidate: 3,
+  };
+};
